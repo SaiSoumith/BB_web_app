@@ -11,7 +11,7 @@ const [error,setError]=useState(null);
 const  [products,setProducts]=useState([]);
 const [search,setSearch]=useState('');
   
-const [filteredIds,setFilteredIds]=useState([]);
+const [filteredProducts,setFilteredProducts]=useState([]);
 
 
   useEffect(()=>{
@@ -42,9 +42,13 @@ const [filteredIds,setFilteredIds]=useState([]);
 
    useEffect(()=>{
  
-    setFilteredIds(
+    setFilteredProducts(
       products.filter((product) =>
       product.truck_id.includes(search)
+    ));
+    setFilteredProducts(
+      products.filter((product) =>
+      product.document_status.toLowerCase().includes(search.toLowerCase())
     ));
    },[search,products]);
 
@@ -54,7 +58,7 @@ const [filteredIds,setFilteredIds]=useState([]);
       return(
         
         <div>
-          <input type="text" placeholder="search by ID" onChange={e=>setSearch(e.target.value)}/>
+          <input type="text" placeholder="search by ID or Document status" onChange={e=>setSearch(e.target.value)}/>
           <Table>
             <thead>
               <tr>
@@ -66,7 +70,7 @@ const [filteredIds,setFilteredIds]=useState([]);
               </tr>
             </thead>
             <tbody>
-              {filteredIds.map(product => (
+              {filteredProducts.map(product => (
                 <tr key={product.id}>
                   <td>{product.truck_id}</td>
                   <td>{product.document_status}</td>
