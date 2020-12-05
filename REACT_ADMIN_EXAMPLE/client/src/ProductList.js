@@ -1,24 +1,28 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import {useGlobalFilter} from 'react-table';
+
 
 function  ProductList(props) {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     error: null,
-  //     products: []
-  //   }
-  // }
+
 
 const [error,setError]=useState(null);
 const  [products,setProducts]=useState([]);
-
+const [search,setSearch]=useState('');
   
-
+const [filteredIds,setFilteredIds]=useState([]);
 
 
   useEffect(()=>{
+
+  loadData();
+
+  },[]);
+
+
+
+  const loadData=()=>{
 
    
     const apiUrl = ' http://localhost:3000/products';
@@ -33,40 +37,24 @@ const  [products,setProducts]=useState([]);
             setError(error);
           }
         )
+  }
 
 
-  })
+   useEffect(()=>{
+ 
+    setFilteredIds(
+      products.filter((product) =>
+      product.truck_id.includes(search)
+    ));
+   },[search,products]);
 
 
 
-  // componentDidMount() {
-  //   const apiUrl = ' http://localhost:3000/products';
 
-  //   fetch(apiUrl)
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         this.setState({
-  //           products: result
-  //         });
-  //       },
-  //       (error) => {
-  //         this.setState({ error });
-  //       }
-  //     )
-  // }
-
-  // render() {
-  //   const { error, products} = this.state;
-
-    if(error) {
-      return (
-        <div>Error: {error.message}</div>
-      )
-    } else {
       return(
-        <div>cd
         
+        <div>
+          <input type="text" placeholder="search by ID" onChange={e=>setSearch(e.target.value)}/>
           <Table>
             <thead>
               <tr>
@@ -78,7 +66,7 @@ const  [products,setProducts]=useState([]);
               </tr>
             </thead>
             <tbody>
-              {products.map(product => (
+              {filteredIds.map(product => (
                 <tr key={product.id}>
                   <td>{product.truck_id}</td>
                   <td>{product.document_status}</td>
@@ -92,10 +80,12 @@ const  [products,setProducts]=useState([]);
               ))}
             </tbody>
           </Table>
+         
         </div>
-      )
-    }
-  }
-// }
+      );
+      
+    
+  
+}
 
 export default ProductList;

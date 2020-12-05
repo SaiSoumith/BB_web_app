@@ -4,14 +4,14 @@
       "id": "1",
       "truck_id": "1234",
       "rejection_reason": "",
-      "document_status": " NOT_SUBMITTED",
+      "document_status": "PENDING",
       "price": "wwwwwwwwwwwwwwwwww"
     },
     {
       "id": "2",
       "truck_id": "456",
       "rejection_reason": "",
-      "document_status": "AUTO_VERIFICATION_IN_PROGRESS"
+      "document_status": "REJECTED"
     },
     {
       "id": "3",
@@ -24,7 +24,7 @@
       "id": "4",
       "truck_id": "4568",
       "rejection_reason": "",
-      "document_status": "REJECTED"
+      "document_status": "AUTO_VERIFICATION_IN_PROGRESS"
     },
     {
       "id": "5",
