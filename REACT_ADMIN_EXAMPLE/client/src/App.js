@@ -113,3 +113,10 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+//LEFT OVER
+
+//1)IMAGE FETCHING 
+//2)ORIGINAL APIs

@@ -58,7 +58,7 @@ const [filteredProducts,setFilteredProducts]=useState([]);
       return(
         
         <div>
-          <input type="text" placeholder="search by ID or Document status" onChange={e=>setSearch(e.target.value)}/>
+          <input s type="text" placeholder="search by ID or Document status" onChange={e=>setSearch(e.target.value)}/>
           <Table>
             <thead>
               <tr>

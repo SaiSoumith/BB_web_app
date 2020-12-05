@@ -8,10 +8,7 @@ class ProductForm extends React.Component {
       super(props);
       this.initialState = {
         id:'',
-          truck_id:'',
-        // product_name: '',
-        // price: '',
-        // sku: '',
+        truck_id:'',
         document_status:'',
         rejection_reason:''
       }
@@ -57,33 +54,7 @@ class ProductForm extends React.Component {
                   
                 </Form.Group>
                
-                {/* <Form.Group controlId="productName">
-                  <Form.Label>Product Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="product_name"
-                    value={this.state.product_name}
-                    onChange={this.handleChange}
-                    placeholder="Product Name"/>
-                </Form.Group>
-                <Form.Group controlId="sku">
-                  <Form.Label>SKU</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="sku"
-                    value={this.state.sku}
-                    onChange={this.handleChange}
-                    placeholder="SKU" />
-                </Form.Group>
-                <Form.Group controlId="price">
-                  <Form.Label>Price</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="price"
-                    value={this.state.price}
-                    onChange={this.handleChange}
-                    placeholder="Price" />
-                </Form.Group> */}
+               
                 <Form.Group controlId="document_status">
                 <Form.Label style={{paddingRight: 50}}>Document Status   </Form.Label>
                <br/>
@@ -100,13 +71,14 @@ class ProductForm extends React.Component {
                   <Form.Label>Rejection Reason</Form.Label>
                   <Form.Control
                     type="text"
-                    name="price"
+                    name="rejection_reason"
                     value={this.state.rejection_reason}
                     onChange={this.handleChange}
                     placeholder="rejection reason" />
                 </Form.Group>
                   :null}
                 <Form.Group>
+
                  <Form.Control type="hidden" name="id" value={this.state.id} />
                  <Button variant="success" type="submit">Save</Button>
                 </Form.Group>
