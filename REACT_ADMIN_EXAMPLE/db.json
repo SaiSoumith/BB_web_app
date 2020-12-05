@@ -1,0 +1,42 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "truck_id": "1234",
+      "rejection_reason": "",
+      "document_status": " NOT_SUBMITTED",
+      "price": "wwwwwwwwwwwwwwwwww"
+    },
+    {
+      "id": "2",
+      "truck_id": "456",
+      "rejection_reason": "",
+      "document_status": "AUTO_VERIFICATION_IN_PROGRESS"
+    },
+    {
+      "id": "3",
+      "truck_id": "156",
+      "rejection_reason": "",
+      "document_status": "PENDING",
+      "price": "wwwwwwwwwwwwwwwwww"
+    },
+    {
+      "id": "4",
+      "truck_id": "4568",
+      "rejection_reason": "",
+      "document_status": "REJECTED"
+    },
+    {
+      "id": "5",
+      "truck_id": "9999",
+      "rejection_reason": "",
+      "document_status": "APPROVED"
+    },
+    {
+      "id": "6",
+      "truck_id": "1564",
+      "rejection_reason": "",
+      "document_status": "AUTO_VERIFICATION_IN_PROGRESS"
+    }
+  ]
+}
