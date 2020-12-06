@@ -1,0 +1,82 @@
+you can use this curl to get list of all trucks
+
+
+
+curl 'https://preprod-boss-auth.blackbuck.com/fms/api/dashboard/truck/getTrucksList' \
+  -H 'authority: preprod-boss-auth.blackbuck.com' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'authorization: Token :5vp9lltyyt8qjlehphrta2ys8f88pr12' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36' \
+  -H 'content-type: application/json;charset=UTF-8' \
+  -H 'origin: https://sitemployees.blackbuck.com' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://sitemployees.blackbuck.com/' \
+  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8' \
+  --data-binary '{"page":1,"size":10}' \
+  --compressed
+
+
+
+this is the api to get truck kyc filter dropdown to choose from
+
+  curl 'https://preprod-boss-auth.blackbuck.com/fms/api/dashboard/truck/getTruckKycStatus' \
+  -H 'authority: preprod-boss-auth.blackbuck.com' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'authorization: Token :5vp9lltyyt8qjlehphrta2ys8f88pr12' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36' \
+  -H 'origin: https://sitemployees.blackbuck.com' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://sitemployees.blackbuck.com/' \
+  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8' \
+  --compressed
+
+
+
+curl to send truck number as filter in that api
+
+
+  curl 'https://preprod-boss-auth.blackbuck.com/fms/api/dashboard/truck/getTrucksList' \
+  -H 'authority: preprod-boss-auth.blackbuck.com' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'authorization: Token :5vp9lltyyt8qjlehphrta2ys8f88pr12' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36' \
+  -H 'content-type: application/json;charset=UTF-8' \
+  -H 'origin: https://sitemployees.blackbuck.com' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://sitemployees.blackbuck.com/' \
+  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8' \
+  --data-binary '{"page":"1","size":10,"truck_number":{"value":"123"}}' \
+  --compressed
+
+
+
+  curl to send truck kyc status as filter in that api
+
+  curl 'https://preprod-boss-auth.blackbuck.com/fms/api/dashboard/truck/getTrucksList' \
+  -H 'authority: preprod-boss-auth.blackbuck.com' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'authorization: Token :5vp9lltyyt8qjlehphrta2ys8f88pr12' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36' \
+  -H 'content-type: application/json;charset=UTF-8' \
+  -H 'origin: https://sitemployees.blackbuck.com' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://sitemployees.blackbuck.com/' \
+  -H 'accept-language: en-GB,en-US;q=0.9,en;q=0.8' \
+  --data-binary '{"page":"1","size":10,"truck_kyc_status":{"value_list":["VERIFIED"]}}' \
+  --compressed
