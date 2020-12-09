@@ -1,35 +1,74 @@
 {
   "products": [
-
-   {
-    "truck_id": 257800,
-    "fleet_owner_id": 114526,
-    "truck_number": "AP01A0001",
-    "carrier_mobile": "8817154688",
-    "carrier_name": "aayush",
-    "owner_name": "NA",
-    "truck_kyc_status": "Upload pending",
-    "truck_owner_kyc_status": "Upload Pending",
-    "owner_selfie_status": "Pending",
-    "category": "Others",
-    "created_on": 1606915296000
-
-   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
+    {
+      "id": "1",
+      "truck_number": "aaa",
+      "carrier_mobile": "aaaa",
+      "chassis_number": "12345",
+      "truck_kyc_status": "REJECTED",
+      "truck_owner_kyc_status": "aaaaaaa",
+      "rejection_reason": "aaaaaaaa",
+      "image_front": "https://picsum.photos/200/300",
+      "image_back": "https://picsum.photos/200/300",
+      "model": "kjnkjn",
+      "manufacture": "iuhbkuj",
+      "Date": 1210981217
+    },
+    {
+      "id": "2",
+      "truck_number": "bb",
+      "carrier_mobile": "bbbb",
+      "chassis_number": "67891",
+      "truck_kyc_status": "REJECTED",
+      "truck_owner_kyc_status": "bbbbbbb",
+      "rejection_reason": "hie",
+      "image_front": "https://picsum.photos/seed/picsum/200/300",
+      "image_back": "https://picsum.photos/seed/picsum/200/300",
+      "model": "kjnkjn",
+      "manufacture": "iuhbkuj",
+      "Date": 1210981217
+    },
+    {
+      "id": "3",
+      "truck_number": "cc",
+      "carrier_mobile": "cccccc",
+      "chassis_number": "1112113",
+      "truck_kyc_status": "AUTO_VERIFICATION_IN_PROGRESS",
+      "truck_owner_kyc_status": "ccccccc",
+      "rejection_reason": "ccccccccccccccc",
+      "image_front": "https://picsum.photos/200/300",
+      "image_back": "https://picsum.photos/200/300",
+      "model": "kjnkjn",
+      "manufacture": "iuhbkuj",
+      "Date": 1210981217
+    },
+    {
+      "id": "4",
+      "truck_number": "dd",
+      "carrier_mobile": "dd",
+      "chassis_number": "171819",
+      "truck_kyc_status": "PENDING",
+      "truck_owner_kyc_status": "ddd",
+      "rejection_reason": "dddd",
+      "image_front": "https://picsum.photos/200/300",
+      "image_back": "https://picsum.photos/200/300",
+      "model": "kjnkjn",
+      "manufacture": "iuhbkuj",
+      "Date": 1210981217
+    },
+    {
+      "id": "5",
+      "truck_number": "ee",
+      "carrier_mobile": "eeee",
+      "chassis_number": "141516",
+      "truck_kyc_status": "AUTO_VERIFICATION_IN_PROGRESS",
+      "truck_owner_kyc_status": "eeee",
+      "rejection_reason": "eeeeee",
+      "image_front": "https://picsum.photos/200/300",
+      "image_back": "https://picsum.photos/200/300",
+      "model": "kjnkjn",
+      "manufacture": "bjnbj",
+      "Date": 1210981217
+    }
   ]
 }

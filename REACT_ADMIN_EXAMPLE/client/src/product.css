@@ -1,0 +1,44 @@
+
+.padStyleInput{
+
+margin-right: 20px;
+  
+}
+
+
+.padStyleButton{
+
+    margin-right: 20px;
+      
+    }
+
+
+.topDiv{
+
+
+
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+
+.img_class{
+
+margin-left: 20px;
+margin-right: 20px;
+
+}
+.front_img{
+
+margin-left: 75px;
+text-decoration: solid;
+color: black;
+}
+
+.back_img{
+
+
+margin-left: 140px;
+text-decoration: solid;
+color: black;
+
+}

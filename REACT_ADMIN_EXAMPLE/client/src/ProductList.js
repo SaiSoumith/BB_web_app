@@ -1,13 +1,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
+import Moment from 'react-moment';
 //import {useGlobalFilter} from 'react-table';
 import axios from 'axios';
+import './product.css';
 
-
-const apiUrl = 'getTrucksList';
+//const apiUrl = 'getTrucksList';
 //const accessToken='5vp9lltyyt8qjlehphrta2ys8f88pr12';
-// const apiUrl='http://localhost:3000/products';
+ const apiUrl='http://localhost:3000/products';
 // const authAxios=axios.create({
 //   baseURL:apiUrl
   // headers:{
@@ -21,16 +22,20 @@ function  ProductList(props) {
 
 //const [error,setError]=useState(null);
 const  [products,setProducts]=useState([]);
-const [search,setSearch]=useState('');
-  
-const [filteredProducts,setFilteredProducts]=useState([]);
-
-
+const [search1,setSearch1]=useState('');
+const [search2,setSearch2]=useState('');
+const [filteredProducts1,setFilteredProducts1]=useState([]);
+const [filteredProducts2,setFilteredProducts2]=useState([]);
+const [query1,setQuery1]=useState('');
+const [loading,setLoading]=useState(false);
+const [message,setMessage]=useState('');
+const [cancel,setCancel]=useState('');
+// const [convertedDate,setConvertedDate]=useState('');
   useEffect(()=>{
-    console.log("hi .");
+
  loadData();
   
-  },[]);
+  },[search1,search2]);
 
 
 
@@ -38,45 +43,12 @@ const [filteredProducts,setFilteredProducts]=useState([]);
 
 
 
-    const requestOptions = {
-      
-      // credentials:'include',
-      headers: { 
-          'Content-Type': 'application/json',
-          'Authorization': 'Token : 5vp9lltyyt8qjlehphrta2ys8f88pr12'
-          
-        
-      }
-  };
 
+  axios.get(apiUrl)
 
-
-  axios.post('https://preprod-boss-auth.blackbuck.com/fms/api/dashboard/truck/getTrucksList', {"page":1,"size":10},requestOptions)
-
-    // fetch('https://preprod-boss-auth.blackbuck.com/fms/api/dashboard/truck/getTrucksList',{
-    //   method: 'POST',
-     
-    //   headers:{
-        
-    //     // 'Host': 'preprod-boss-auth.blackbuck.com',
-    //     // 'authority': 'preprod-boss-auth.blackbuck.com',
-    //     // 'accept': 'application/json',
-    //     'Authorization': 'Token :5vp9lltyyt8qjlehphrta2ys8f88pr12',
-    //     'Content-Type': 'application/json',
-    //    // 'origin': 'https://sitemployees.blackbuck.com',
-    //      //'sec-fetch-mode': 'no-cors',
-    //     //'referer': 'https://sitemployees.blackbuck.com/',
-    //     // 'sec-fetch-site': 'same-site',
-    //     // 'Content-Length': '20'
-    //   },
-    //   body: {"page":1,"size":10}
-  
-  
-  
-    // })
-      .then((res) =>{ 
-        console.log(res);
-        return res.json()})
+      // .then((res) =>{ 
+      //   console.log(res);
+      //   return res.json()})
       .then(
         (result) => {
           console.log(result.data);
@@ -84,34 +56,60 @@ const [filteredProducts,setFilteredProducts]=useState([]);
           
         }
       )
-  // let result=authAxios.get(`products`);
-  //  setProducts(result.data);
-  //  console.log(result.data);
-  //  setError(err.message);
 
     
   }
 
 
-  //  useEffect(()=>{
- 
-  //   setFilteredProducts(
-  //     products.filter((product) =>
-  //     product.truck_id.includes(search)
-  //   ));
-  //   setFilteredProducts(
-  //     products.filter((product) =>
-  //     product.document_status.toLowerCase().includes(search.toLowerCase())
-  //   ));
-  //  },[search,products]);
+
+ const filterSearch1=()=>{
+  const searchUrl=`http://localhost:3000/products?truck_number=${search1}`
+
+   axios.get(searchUrl
+   ).then(
+    (result) => {
+      console.log(result.data);
+      setProducts(result.data);
+      
+    }
+  )
 
 
+}
+Moment.globalFormat = 'D MMM YYYY';
+
+
+
+
+const filterSearch2=()=>{
+  const searchUrl=`http://localhost:3000/products?truck_kyc_status=${search2}`
+
+   axios.get(searchUrl
+   ).then(
+    (result) => {
+      console.log(result.data);
+      setProducts(result.data);
+      
+    }
+  )
+
+
+}
 
 
       return(
-        
+       
         <div>
-          <input s type="text" placeholder="search by ID or Document status" onChange={e=>setSearch(e.target.value)}/>
+          <div className="topDiv">
+          <input className="padStyleInput" name="inp1" type="text" value={search1} placeholder="search by Truck Number" onChange={e=>setSearch1(e.target.value)}/>
+           <Button className="padStyleButton" onClick={filterSearch1}>search</Button>
+
+
+         
+
+          <input  className="padStyleInput" name="inp2" type="text" value={search2} placeholder="search by RC status" onChange={e=>setSearch2(e.target.value)}/>
+          <Button className="padStyleButton" onClick={filterSearch2}>search</Button>
+          </div>
           <Table>
             <thead>
               <tr>
@@ -120,30 +118,32 @@ const [filteredProducts,setFilteredProducts]=useState([]);
                 <th>Carrier Mobile</th>
                 <th>Truck RC Status</th>
                 <th>Truck Owner KYC Status</th>
-                {/* <th>Document status</th> */}
-                {/* <th>SKU</th>
-                <th>Price</th> */}
+            
                 <th>Created On</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              {products.map(product => (
+              {
+            
+               products.map(product => (
                 <tr key={product.id}>
                   <td>{product.truck_number}</td>
                    <td>{product.carrier_mobile}</td>
                    <td>{product.truck_kyc_status}</td>
                    <td>{product.truck_owner_kyc_status}</td>
                   
-                  <td>{product.created_on}</td>
+                  <td>{<Moment unix>{product.Date}</Moment>}</td>
 
-                  {/* <td>{product.product_name}</td>
-                  <td>{product.sku}</td>
-                  <td>{product.price}</td> */}
+                 
                   <td><Button variant="info" onClick={()=>props.editProduct(product.id)}>
                   Edit Status</Button></td>
                 </tr>
-              ))}
+              ))
+            
+             
+             
+            }
             </tbody>
           </Table>
          
